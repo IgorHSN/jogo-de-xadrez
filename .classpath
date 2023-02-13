@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="sistema_de_xadrez/src"/>
+	<classpathentry kind="output" path="sistema_de_xadrez/out/production/sistema_de_xadrez"/>
+</classpath>
