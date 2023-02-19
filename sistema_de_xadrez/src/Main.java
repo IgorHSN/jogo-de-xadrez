@@ -3,6 +3,9 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
+import boardgame.Board;
+import boardgame.Piece;
+import boardgame.Position;
 import chess.ChessException;
 import chess.ChessMatch;
 import chess.ChessPiece;
@@ -14,6 +17,8 @@ public class Main {
 
 		Scanner sc = new Scanner(System.in);
 		ChessMatch chessMatch = new ChessMatch();
+		Position p = new Position(8,8);
+		
 
 		while (true) {
 			try {
@@ -39,8 +44,11 @@ public class Main {
 				System.out.println(e.getMessage());
 				sc.nextLine();
 		}
-
+			
+		Piece b = chessMatch.getBoard().piece(7, 1);
+			
 	}
+		
 }
 
 }	

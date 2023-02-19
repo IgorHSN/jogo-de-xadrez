@@ -23,14 +23,15 @@ public class Board {
     public int getColumns() {
         return columns;
     }
-
+    
+    //esse metodo retorna uma peca na posicao do row/column
     public Piece piece (int row, int column) {
     	if (!positionExists(row, column)) {
     		throw new BoardException("A posicao nao esta no tabuleiro");
     	}
         return pieces[row][column];
     }
-
+    //esse metodo retorna uma peca na posicao do position.getRow/position.getColumn
     public  Piece piece (Position position){
     	if (!positionExists(position)) {
     		throw new BoardException("A posicao nao esta no tabuleiro");
@@ -38,6 +39,8 @@ public class Board {
         return  pieces[position.getRow()][position.getColumm()];
     }
     
+    // funcao insere uma peca na matriz passando como posicao a position.getRow/position.getColumn. Apos isso insere o position
+    //do parametro no atributo position na peca
     public void placePiece (Piece piece, Position position) {
     	if (thereIsAPiece(position)) {
     		throw new BoardException("Ja existe uma peca nessa posicao " + position);
@@ -46,6 +49,9 @@ public class Board {
     	piece.position = position;
     }
     
+    //esse metodo remove uma peca na matrizes de peca passando um objeto position no parametro. Criando uma variavel com a peca da posicao
+    //inserindo null no objeto position da peca e inserindo null na matriz de peca de acordo com a posicao do position do parametro apois
+    //retorna a peca
     public Piece removePiece(Position position) {
     	if (!positionExists(position)) {
     		throw new BoardException("A posicao nao esta no tabuleiro");
@@ -54,23 +60,26 @@ public class Board {
     	if(piece(position) == null) {
     		return null;
     	}
-    	Piece aux = piece(position);
-    	aux.position = null;
+    	Piece p = piece(position);
+    	p.position = null;
     	pieces[position.getRow()][position.getColumm()] = null;
-    	return aux;
+    	return p;
     }
     
+    
+    //funcao para testar se uma position existe
     private boolean positionExists(int row, int column) {
     	return row >= 0 && row < rows && column >= 0 && column < columns;
     	
     }
-    
+    //funcao para testar se uma position existe
     public boolean positionExists(Position position) {
     	return positionExists(position.getRow(), position.getColumm());
     	
     	
     }
     
+    // testa se uma peca existe na posicao
     public boolean thereIsAPiece(Position position) {
     	if (!positionExists(position)) {
     		throw new BoardException("A posicao nao esta no tabuleiro");

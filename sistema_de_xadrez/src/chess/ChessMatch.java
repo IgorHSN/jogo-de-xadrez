@@ -108,6 +108,10 @@ public class ChessMatch {
         placeNewPiece('d', 8, new King(board, Color.BLACK));
 
     }
+
+	public Board getBoard() {
+		return board;
+	}
     
     
 

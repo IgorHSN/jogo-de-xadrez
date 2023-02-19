@@ -16,11 +16,15 @@ public class King extends ChessPiece {
 		return "K";
 	}
 	
+	
+	// testa se o espaco que o jogador quer jogar esta vazio, criando uma variarel chesspiece e atribuindo a piece da posicao passada pelo parametro, e retornando 
+	// true se a peca for null ou tiver cor diferente
 	private boolean canMove(Position position) {
 		ChessPiece p = (ChessPiece)getBoard().piece(position);
 		return p == null || p.getColor() != getColor();
 	}
-
+	
+	//as funcoes abaixo testam se é possivel e movem a peca para a posicao desejada
 	@Override
 	public boolean[][] possibleMoves() {
 		boolean[][] mat = new boolean[getBoard().getRows()][getBoard().getColumns()];
